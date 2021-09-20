@@ -9,23 +9,33 @@
 /* Begin PBXBuildFile section */
 		C66AE4EA26F8778E00B81A3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE4E926F8778E00B81A3C /* AppDelegate.swift */; };
 		C66AE4EC26F8778E00B81A3C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE4EB26F8778E00B81A3C /* SceneDelegate.swift */; };
-		C66AE4EE26F8778E00B81A3C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE4ED26F8778E00B81A3C /* ViewController.swift */; };
 		C66AE4F126F8778E00B81A3C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C66AE4EF26F8778E00B81A3C /* Main.storyboard */; };
 		C66AE4F426F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C66AE4F226F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652.xcdatamodeld */; };
 		C66AE4F626F8778F00B81A3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C66AE4F526F8778F00B81A3C /* Assets.xcassets */; };
 		C66AE4F926F8778F00B81A3C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C66AE4F726F8778F00B81A3C /* LaunchScreen.storyboard */; };
+		C66AE50626F878D300B81A3C /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE50026F878D300B81A3C /* ItemViewController.swift */; };
+		C66AE50726F878D300B81A3C /* ProvidersViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE50126F878D300B81A3C /* ProvidersViewCell.swift */; };
+		C66AE50826F878D300B81A3C /* ProvidersSublistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE50226F878D300B81A3C /* ProvidersSublistViewController.swift */; };
+		C66AE50926F878D300B81A3C /* ProductsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE50326F878D300B81A3C /* ProductsViewCell.swift */; };
+		C66AE50A26F878D300B81A3C /* ProductInProviderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE50426F878D300B81A3C /* ProductInProviderViewCell.swift */; };
+		C66AE50B26F878D300B81A3C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C66AE50526F878D300B81A3C /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C66AE4E626F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lab_A1_A2_iOS_Ritraj_812652.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C66AE4E926F8778E00B81A3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C66AE4EB26F8778E00B81A3C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C66AE4ED26F8778E00B81A3C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C66AE4F026F8778E00B81A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C66AE4F326F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lab_A1_A2_iOS_Ritraj_812652.xcdatamodel; sourceTree = "<group>"; };
 		C66AE4F526F8778F00B81A3C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C66AE4F826F8778F00B81A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C66AE4FA26F8778F00B81A3C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C66AE50026F878D300B81A3C /* ItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemViewController.swift; sourceTree = "<group>"; };
+		C66AE50126F878D300B81A3C /* ProvidersViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvidersViewCell.swift; sourceTree = "<group>"; };
+		C66AE50226F878D300B81A3C /* ProvidersSublistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvidersSublistViewController.swift; sourceTree = "<group>"; };
+		C66AE50326F878D300B81A3C /* ProductsViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsViewCell.swift; sourceTree = "<group>"; };
+		C66AE50426F878D300B81A3C /* ProductInProviderViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInProviderViewCell.swift; sourceTree = "<group>"; };
+		C66AE50526F878D300B81A3C /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +68,53 @@
 		C66AE4E826F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652 */ = {
 			isa = PBXGroup;
 			children = (
-				C66AE4E926F8778E00B81A3C /* AppDelegate.swift */,
-				C66AE4EB26F8778E00B81A3C /* SceneDelegate.swift */,
-				C66AE4ED26F8778E00B81A3C /* ViewController.swift */,
-				C66AE4EF26F8778E00B81A3C /* Main.storyboard */,
-				C66AE4F526F8778F00B81A3C /* Assets.xcassets */,
-				C66AE4F726F8778F00B81A3C /* LaunchScreen.storyboard */,
+				C66AE50E26F8825B00B81A3C /* model */,
+				C66AE50F26F882A500B81A3C /* view */,
+				C66AE50C26F87BA600B81A3C /* controllers */,
+				C66AE50D26F8821100B81A3C /* supporting files */,
 				C66AE4FA26F8778F00B81A3C /* Info.plist */,
-				C66AE4F226F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652.xcdatamodeld */,
 			);
 			path = Lab_A1_A2_iOS_Ritraj_812652;
+			sourceTree = "<group>";
+		};
+		C66AE50C26F87BA600B81A3C /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C66AE50526F878D300B81A3C /* MainViewController.swift */,
+				C66AE50026F878D300B81A3C /* ItemViewController.swift */,
+				C66AE50226F878D300B81A3C /* ProvidersSublistViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		C66AE50D26F8821100B81A3C /* supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				C66AE4E926F8778E00B81A3C /* AppDelegate.swift */,
+				C66AE4EB26F8778E00B81A3C /* SceneDelegate.swift */,
+				C66AE4F526F8778F00B81A3C /* Assets.xcassets */,
+				C66AE4F726F8778F00B81A3C /* LaunchScreen.storyboard */,
+			);
+			path = "supporting files";
+			sourceTree = "<group>";
+		};
+		C66AE50E26F8825B00B81A3C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				C66AE4F226F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652.xcdatamodeld */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		C66AE50F26F882A500B81A3C /* view */ = {
+			isa = PBXGroup;
+			children = (
+				C66AE4EF26F8778E00B81A3C /* Main.storyboard */,
+				C66AE50326F878D300B81A3C /* ProductsViewCell.swift */,
+				C66AE50126F878D300B81A3C /* ProvidersViewCell.swift */,
+				C66AE50426F878D300B81A3C /* ProductInProviderViewCell.swift */,
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,10 +187,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C66AE4EE26F8778E00B81A3C /* ViewController.swift in Sources */,
+				C66AE50826F878D300B81A3C /* ProvidersSublistViewController.swift in Sources */,
 				C66AE4EA26F8778E00B81A3C /* AppDelegate.swift in Sources */,
 				C66AE4F426F8778E00B81A3C /* Lab_A1_A2_iOS_Ritraj_812652.xcdatamodeld in Sources */,
+				C66AE50926F878D300B81A3C /* ProductsViewCell.swift in Sources */,
+				C66AE50626F878D300B81A3C /* ItemViewController.swift in Sources */,
 				C66AE4EC26F8778E00B81A3C /* SceneDelegate.swift in Sources */,
+				C66AE50B26F878D300B81A3C /* MainViewController.swift in Sources */,
+				C66AE50726F878D300B81A3C /* ProvidersViewCell.swift in Sources */,
+				C66AE50A26F878D300B81A3C /* ProductInProviderViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
