@@ -13,6 +13,6 @@ class ProductInProviderViewCell: UITableViewCell {
     
     func initCell(_ product: Product){
         txtName.text = product.name
-        txtPrice.text = String(format: "$ %.2f", product.price)
+        txtPrice.text = String(format: "US$ %.2f", product.price)
     }
 }

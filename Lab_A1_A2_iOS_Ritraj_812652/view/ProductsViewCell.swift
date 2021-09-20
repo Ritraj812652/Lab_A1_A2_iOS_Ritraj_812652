@@ -9,13 +9,13 @@ import UIKit
 
 class ProductsViewCell: UITableViewCell{
     
-    @IBOutlet weak var productName: UITextField!
-    @IBOutlet weak var productPrice: UITextField!
-    @IBOutlet weak var productProvider: UITextField!
+    @IBOutlet weak var txtProductName: UITextField!
+    @IBOutlet weak var txtProductProvider: UITextField!
     
     func initCell(_ product: Product){
-        productName.text = product.name
-        productPrice.text = String(format: "$ %.2f", product.price)
-        productProvider.text = product.provider?.name ?? ""
+        
+        txtProductName.text = product.name
+
+        txtProductProvider.text = product.provider?.name ?? ""
     }
 }

@@ -9,12 +9,13 @@ import UIKit
 
 class ProvidersViewCell: UITableViewCell{
     
-    @IBOutlet weak var providerName: UITextField!
-    @IBOutlet weak var productCount: UITextField!
+    @IBOutlet weak var txtProviderName: UITextField!
+    @IBOutlet weak var txtProductCount: UITextField!
    
    func initCell(_ provider: Provider){
-       providerName.text = provider.name
-    productCount.text = String(format: "%d", provider.products?.count ?? 0)
+       txtProviderName.text = provider.name
+    
+    txtProductCount.text = String(format: "%d", provider.products?.count ?? 0)
    }
 }
 

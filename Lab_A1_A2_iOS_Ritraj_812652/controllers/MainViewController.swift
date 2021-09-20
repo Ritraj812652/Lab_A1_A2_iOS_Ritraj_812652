@@ -97,6 +97,7 @@ class MainViewController: UITableViewController {
         let alert = UIAlertController(title: "Editing mode", message: " You can Edit/Delete the Items by clicking on them", preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in }))
+            
         
         self.present(alert, animated: true, completion: nil)
             
@@ -124,6 +125,8 @@ class MainViewController: UITableViewController {
     
     // editSTyle change
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // editingStyle == 
         if editingStyle == .delete {
             if isItProvider {
                 removeProvider(providerItems[indexPath.row])
@@ -148,16 +151,16 @@ class MainViewController: UITableViewController {
             if segue.identifier == "productDetailedInfo" {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     destination.product = productItems[indexPath.row]
-                    destination.isEdit = false
+                    destination.editingMode = false
                 }
             } else if segue.identifier == "modifyProductInfo" {
                 if let indexPath = tableView.indexPathForSelectedRow {
                     destination.product = productItems[indexPath.row]
-                    destination.isEdit = true
+                    destination.editingMode = true
                 }
             } else if segue.identifier == "addProductInfo" {
                 destination.product = Product(context: context)
-                destination.isEdit = true
+                destination.editingMode = true
             }
         }
     }
@@ -206,7 +209,7 @@ class MainViewController: UITableViewController {
         provider3.name = "OnePlus"
         
         var product = Product(context: context)
-        product.id = 1
+        product.id = 113
         product.name = "Iphone 13 Pro"
         product.desc = "This is the all new Iphone 13, where magic happens! Oh.So.Pro!"
         product.price = 999.0
@@ -215,7 +218,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 2
+        product.id = 112
         product.name = "Iphone 12"
         product.desc = "Iphone 12 - Blast past fast"
         product.price = 699.0
@@ -224,7 +227,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 3
+        product.id = 111
         product.name = "Iphone 11"
         product.desc = "Just the right amount of everything"
         product.price = 599.0
@@ -233,7 +236,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 4
+        product.id = 110
         product.name = "Iphone X"
         product.desc = "Say Hello to the future"
         product.price = 499.0
@@ -242,7 +245,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 5
+        product.id = 221
         product.name = "Samsung Galaxy S21"
         product.desc = "Everyday Epic"
         product.price = 799.99
@@ -251,7 +254,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 6
+        product.id = 101
         product.name = "iPad"
         product.desc = "Easy does it all"
         product.price = 329.0
@@ -260,7 +263,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 7
+        product.id = 222
         product.name = "Galaxy Buds 2"
         product.desc = "Bluetooth Wireless Earbuds"
         product.price = 109.9
@@ -269,7 +272,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 8
+        product.id = 301
         product.name = "OnePlus 9"
         product.desc = "Never Settle"
         product.price = 699.0
@@ -278,7 +281,7 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 9
+        product.id = 104
         product.name = "Airpods Pro"
         product.desc = "Magic like you've never heard"
         product.price = 249.0
@@ -287,10 +290,10 @@ class MainViewController: UITableViewController {
         
         
         product = Product(context: context)
-        product.id = 10
+        product.id = 226
         product.name = "Galaxy Z Fold3 5G"
         product.desc = "is 'good' good enough"
-        product.price = 31.15
+        product.price = 1499.0
         product.provider = provider2
         productItems.append(product)
         
@@ -410,12 +413,12 @@ extension MainViewController {
 }
 extension MainViewController: UISearchBarDelegate {
     
-    //MARK: - searchbar on click event
+    //MARK: - search on click
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         fetchFilterData(searchText: searchBar.text!)
     }
     
-    // detect searchText changes
+
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text?.count == 0 {
             loadData()

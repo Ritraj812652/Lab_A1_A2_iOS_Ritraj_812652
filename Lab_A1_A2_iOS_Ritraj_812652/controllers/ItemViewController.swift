@@ -13,112 +13,126 @@ class ItemViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     weak var delegate: MainViewController?
+    
+    
+    
     var product: Product!
-    var isEdit: Bool = false
+    
+    var editingMode: Bool = false
 
-    @IBOutlet weak var txtId: UITextField!
-    @IBOutlet weak var txtName: UITextField!
-    @IBOutlet weak var txtDescription: UITextView!
-    @IBOutlet weak var txtProvider: UITextField!
-    @IBOutlet weak var txtPrice: UITextField!
-    @IBOutlet weak var btnSave: UIButton!
+    @IBOutlet weak var productId: UITextField!
+    @IBOutlet weak var productName: UITextField!
+    @IBOutlet weak var productDescription: UITextView!
+    @IBOutlet weak var productProvider: UITextField!
+    @IBOutlet weak var productPrice: UITextField!
+    @IBOutlet weak var buttonToSave: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        txtId.text = String(format:"%d",product.id)
-        txtName.text = product.name
-        txtDescription.text = product.desc
-        if isEdit {
-            txtPrice.text = String(format:"%.2f",product.price)
-        } else {
-            txtPrice.text = String(format:"$ %.2f",product.price)
-        }
-        txtProvider.text = product.provider?.name ?? ""
-        txtDescription.layer.borderWidth = 1.0;
-        txtDescription.layer.cornerRadius = 5.0;
         
-        if isEdit {
-            enableEdit()
+        
+        productId.text = String(format:"%d",product.id)
+        productName.text = product.name
+        productDescription.text = product.desc
+        
+        if editingMode {
+            productPrice.text = String(format:"%.2f",product.price)
         } else {
-            disableEdit()
+            productPrice.text = String(format:"US %.2f",product.price)
         }
         
-        if isEdit && product.name?.isEmpty != false {
+        
+        productProvider.text = product.provider?.name ?? ""
+        productDescription.layer.borderWidth = 1.2;
+        productDescription.layer.cornerRadius = 6.0;
+        
+        
+        if editingMode {
+            editingEnabled()
+        } else {
+            editingDisabled()
+        }
+        
+        if editingMode && product.name?.isEmpty != false {
             title = "New Product"
         }
         navigationItem.largeTitleDisplayMode = .never
     }
     
-    // enable textfield for editable
-    func enableEdit(){
-        txtId.borderStyle = .roundedRect
-        txtName.borderStyle = .roundedRect
-        txtProvider.borderStyle = .roundedRect
-        txtPrice.borderStyle = .roundedRect
-
-        txtDescription.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+    // MARK: - TextField functions
+    
+    func editingEnabled(){
         
-        txtId.isEnabled = true
-        txtName.isEnabled = true
-        txtDescription.isEditable = true
-        txtProvider.isEnabled = true
-        txtPrice.isEnabled = true
+        productId.borderStyle = .roundedRect
+        productName.borderStyle = .roundedRect
+        productProvider.borderStyle = .roundedRect
+        productPrice.borderStyle = .roundedRect
+        productDescription.layer.borderColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 1.0).cgColor
         
-        btnSave.isHidden = false
+        
+        productId.isEnabled = true
+        productName.isEnabled = true
+        productDescription.isEditable = true
+        productProvider.isEnabled = true
+        productPrice.isEnabled = true
+        buttonToSave.isHidden = false
     }
     
-    // disable textfield for editable
-    func disableEdit(){
-        txtId.borderStyle = .none
-        txtName.borderStyle = .none
-        txtProvider.borderStyle = .none
-        txtPrice.borderStyle = .none
+    
+    func editingDisabled(){
         
-        txtDescription.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 0.0).cgColor
+        productId.borderStyle = .none
+        productName.borderStyle = .none
+        productProvider.borderStyle = .none
+        productPrice.borderStyle = .none
+        productDescription.layer.borderColor = UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.0).cgColor
         
-        txtId.isEnabled = false
-        txtName.isEnabled = false
-        txtDescription.isEditable = false
-        txtProvider.isEnabled = false
-        txtPrice.isEnabled = false
-        
-        btnSave.isHidden = true
+        productId.isEnabled = false
+        productName.isEnabled = false
+        productDescription.isEditable = false
+        productProvider.isEnabled = false
+        productPrice.isEnabled = false
+        buttonToSave.isHidden = true
     }
     
-    // delete new product object if we have not saved in CoreData
+    
     override func viewWillDisappear(_ animated: Bool) {
-        if isEdit && product.name?.isEmpty != false {
+        if editingMode && product.name?.isEmpty != false {
+            
             context.delete(product)
         }
     }
     
-    //MARK: - save data in CoreData
-    @IBAction func saveClicked(_ sender: Any) {
-        product.id = Int16(txtId.text ?? "0") ?? 0
-        product.name = txtName.text
-        product.price = Float(txtPrice.text ?? "") ?? 0
-        product.desc = txtDescription.text
-        
-        product.provider = getOrCreateProvider(provider: txtProvider.text ?? "")
+    //MARK: - Saving Data
+    @IBAction func saveButtonPressed(_ sender: Any) {
+        product.id = Int16(productId.text ?? "0") ?? 0
+        product.name = productName.text
+        product.price = Float(productPrice.text ?? "") ?? 0
+        product.desc = productDescription.text
+        product.provider = createRetrieveProvider(provider: productProvider.text ?? "")
         delegate?.updateItems()
         navigationController?.popViewController(animated: true)
     }
     
-    //MARK: - get old or create a new Provider
-    func getOrCreateProvider(provider: String) -> Provider{
+    //MARK: -  Create/Retrive Provider
+    func createRetrieveProvider(provider: String) -> Provider{
         let request: NSFetchRequest<Provider> = Provider.fetchRequest()
         request.predicate = NSPredicate(format: "name == %@", provider)
         do {
-            let providerList = try context.fetch(request)
-            if providerList.count > 0{
-                return providerList[0]
+            let providerItemList = try context.fetch(request)
+            
+            if providerItemList.count > 0{
+            
+                return providerItemList[0]
             }
         } catch {
+            
             print("Error loading provider \(error.localizedDescription)")
         }
-        let newProvider = Provider(context: context)
-        newProvider.name = provider
-        return newProvider
+        let createProvider = Provider(context: context)
+        createProvider.name = provider
+        return createProvider
     }
     
     
